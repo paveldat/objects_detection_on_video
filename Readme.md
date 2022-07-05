@@ -1,14 +1,15 @@
 # Finding objects on the image
-In this project, I'll show you how to find objects in an image, select them, and count them. This program can work with recaptcha
+In this project, I'll show you how to find objects in aa video, select them, and count them. This program can work with recaptcha
 
 ## Features
-* Works with image
+* Works with image, video
+* Possibility to connect a camera
 * Distinguishes 80 objects
 * The user can specify which object to look for on the image
 
 ## How to install
 1. Clone this repository on your computer
-`https://github.com/paveldat/objects_on_image.git`
+`https://github.com/paveldat/object_detection_on_video.git`
 2. Install all the requirements
 `run libraries.bat` or
 `pip install -r requirements.txt`
@@ -16,7 +17,7 @@ In this project, I'll show you how to find objects in an image, select them, and
 `python main.py`
 
 ## Help
-When you start the program, you will be prompted to enter the path to the image and the name of the object that you need to find and calculate it.
+When you start the program, you will be prompted to enter the path to the video and the name of the object that you need to find and calculate it.
 If you need to find several objects in the image, write them separated by commas.
 Names of possible objects:
 ```
@@ -33,20 +34,8 @@ Names of possible objects:
 
 ## Result
 ```
-Path to image(recapcha): Result\input\bus1.png
-What we are looking for: bus
+Path to video (or URL): Result/input/example.mp4
+What we are looking for: person, car, bus
 ```
-![image_input_1](https://github.com/paveldat/objects_on_image/blob/main/Result/input/bus1.png)
-![image_output_1](https://github.com/paveldat/objects_on_image/blob/main/Result/output/bus1.png)
-
-```
-Path to image(recapcha): Result\input\truck.jpg
-What we are looking for: truck
-```
-<img align="left" src="https://github.com/paveldat/objects_on_image/blob/main/Result/input/truck.jpg" width=400><img align="middle" src="https://github.com/paveldat/objects_on_image/blob/main/Result/output/truck.png" width=400>
-
-```
-Path to image(recapcha): Result\input\city.png
-What we are looking for: car, person, traffic ligh
-```
-<img align="left" src="https://github.com/paveldat/objects_on_image/blob/main/Result/input/city.png" width=400><img align="middle" src="https://github.com/paveldat/objects_on_image/blob/main/Result/output/city.png" width=400>
+![Input](https://github.com/paveldat/object_detection_on_video/blob/main/Result/input/example.gif)
+![Output](https://github.com/paveldat/object_detection_on_video/blob/main/Result/output/example.gif)
