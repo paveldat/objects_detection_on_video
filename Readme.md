@@ -1,4 +1,4 @@
-# Finding objects on the image
+# Finding objects on the video
 In this project, I'll show you how to find objects in aa video, select them, and count them. This program can work with recaptcha
 
 ## Features
