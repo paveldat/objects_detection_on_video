@@ -105,29 +105,40 @@ def draw_object_count(image_to_process, objects_count):
     return final_image
 
 
-def start_image_object_detection(img_path):
+def start_video_object_detection(video: str):
     """
-    Image analysis
+    Захват и анализ видео в режиме реального времени
     """
 
-    try:
-        # Applying Object Recognition Techniques in an Image by YOLO
-        image = cv2.imread(img_path)
-        image = apply_yolo_object_detection(image)
-
-        # Displaying the processed image on the screen
-        cv2.imshow("Image", image)
-        if cv2.waitKey(0):
+    while True:
+        try:
+            # Capturing a picture from a video
+            video_camera_capture = cv2.VideoCapture(video)
+            
+            while video_camera_capture.isOpened():
+                ret, frame = video_camera_capture.read()
+                if not ret:
+                    break
+                
+                # Application of object recognition methods on a video frame from YOLO
+                frame = apply_yolo_object_detection(frame)
+                
+                # Displaying the processed image on the screen with a reduced window size
+                frame = cv2.resize(frame, (1920 // 2, 1080 // 2))
+                cv2.imshow("Video Capture", frame)
+                cv2.waitKey(1)
+            
+            video_camera_capture.release()
             cv2.destroyAllWindows()
-
-    except KeyboardInterrupt:
-        pass
+    
+        except KeyboardInterrupt:
+            pass
 
 
 if __name__ == '__main__':
 
     # Logo
-    tprint("reCAPTCHA solution")
+    tprint("Object detection")
     tprint("by")
     tprint("paveldat")
 
@@ -145,7 +156,7 @@ if __name__ == '__main__':
     # Determining classes that will be prioritized for search in an image
     # The names are in the file coco.names.txt
 
-    image = input("Path to image(recapcha): ")
+    video = input("Path to video (or URL): ")
     look_for = input("What we are looking for: ").split(',')
     
     # Delete spaces
@@ -155,4 +166,4 @@ if __name__ == '__main__':
 
     classes_to_look_for = list_look_for
 
-    start_image_object_detection(image)
+    start_video_object_detection(video)
